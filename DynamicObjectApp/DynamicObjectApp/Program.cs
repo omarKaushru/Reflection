@@ -10,7 +10,7 @@ object dynamicObject = CreateInstance(typeName);
 // Check if the object was created successfully
 if (dynamicObject != null)
 {
-   
+
     Console.WriteLine("Dynamic object created successfully!");
 
     SetProperty(dynamicObject, "Id", 1);
@@ -31,31 +31,31 @@ static object CreateInstance(string typeName)
     try
     {
         // Get the type by name
-        Type type = Type.GetType(typeName);
+        Type type = Type.GetType(typeName)!;
 
         if (type != null)
         {
             // Create an instance of the type
-            object instance = Activator.CreateInstance(type);
+            object instance = Activator.CreateInstance(type)!;
             return instance;
         }
         else
         {
             Console.WriteLine($"Type {typeName} not found.");
-            return null;
+            return null!;
         }
     }
     catch (Exception ex)
     {
         Console.WriteLine($"Error creating instance: {ex.Message}");
-        return null;
+        return null!;
     }
 }
 
 static void SetProperty(object obj, string propertyName, object value)
 {
     // Use reflection to set the property value
-    PropertyInfo property = obj.GetType().GetProperty(propertyName);
+    PropertyInfo property = obj.GetType().GetProperty(propertyName)!;
     if (property != null && property.CanWrite)
     {
         property.SetValue(obj, value);
