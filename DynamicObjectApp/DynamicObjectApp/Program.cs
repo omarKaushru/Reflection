@@ -16,10 +16,6 @@ if (dynamicObject != null)
     SetProperty(dynamicObject, "Id", 1);
     SetProperty(dynamicObject, "Name", "Omar");
     var studentEn = (Student)dynamicObject;
-    //Console.WriteLine($"Name Of Object: {nameof(dynamicObject)}");
-
-    //Console.WriteLine($"Name: {GetProperty(dynamicObject, "Name")}");
-    //Console.WriteLine($"Id: {GetProperty(dynamicObject, "Id")}");
     var student = Helper.AddStudent(studentEn);
     Console.WriteLine($"Name: {student.Name}");
     Console.WriteLine($"Id: {student.Id}");
